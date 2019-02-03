@@ -51,9 +51,11 @@
             },
             getSuperHeroByName(nombre){
                 this.listadoSuper = [];
+                this.busquedaSuper = [];
                 var urlSuper = 'http://gateway.marvel.com/v1/public/characters?name='+nombre+'&ts=9&apikey=38b5f450e7f7bdb2be5a5d21dbcf36d7&hash=ca02fac9e223fcbf9501302657212b91';
                 axios.get(urlSuper).then(response => {
                     this.busquedaSuper = response.data.data.results;
+                    this.nombre = ''
                 });
             }
         }

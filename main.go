@@ -7,11 +7,11 @@ import (
 	"bufio"
 	"os"
 	"strings"
-	"encoding/json"
 )
 
-
-type Results struct{
+/*Intenté crear una estructura a la que convertir el resultado de la petición, pero no obtuve los resultados
+esperados*/
+/*type Results struct{
 	id int `json:"id"`
 	name string `json:"name"`
 	description string `json:"description"`
@@ -34,11 +34,9 @@ type SuperHero struct{
 	copyright string `json:"copyright"`
 	attributionText string `json:"attributionText"`
 	attributionHTML string `json:"attributionHTML"`
-}
+}*/
 
 func main() {
-	
-
 	opciones := 
 	`
 	Bienvenido al consumo de la API de Marvel
@@ -80,14 +78,13 @@ func getContent(){
 		fmt.Printf("The HTTP request failed with error %s\n", err)
 	} else {
 		data, _ := ioutil.ReadAll(response.Body)
-		var hero SuperHero
-		superhero:=json.Unmarshal(data, &hero)
+		fmt.Println(string(data))
 
-		if superhero != nil{
-			fmt.Println("No está lleno")
-		}else{
-			fmt.Println(superhero)
-		}
+		/*
+		La manera en la que intenté convertirlo fue así:
+		var superhero SuperHero
+		json.Unmarshal(data, &superhero)
+		*/
 	}
 
 }
